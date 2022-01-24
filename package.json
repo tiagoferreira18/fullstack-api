@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/tiagoferreira18/fullstack-api#readme",
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3"
   }
 }

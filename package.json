@@ -1,0 +1,24 @@
+{
+  "type": "module",
+  "name": "api-alunos",
+  "version": "1.0.0",
+  "description": "API de alunos usando Node.js e Express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiagoferreira18/fullstack-api.git"
+  },
+  "author": "Tiago Ferreira da Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiagoferreira18/fullstack-api/issues"
+  },
+  "homepage": "https://github.com/tiagoferreira18/fullstack-api#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}

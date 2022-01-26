@@ -28,13 +28,13 @@ function ler(res){
 
 function inserir (aluno, res){
     const sql = "INSERT INTO alunos SET ?";
-
+    // aluno: é um objeto contendo os dados do novo aluno a ser inserido
     conexao.query(sql, aluno, (erro) =>{
         if(erro){
             res.status(400).json(erro.code);
         } else {
             res.status(201).json({"status" : "aluno inserido!"})
-            // res.status(201).end();
+            // ou res.status(201).end();
         }
     });
 }
@@ -51,6 +51,7 @@ function lerUm(id, res){
         if (erro){
             res.status(400).json(erro.code);
         }else{
+            /* resultados[0]: representa o unico objeto deste array */
             res.status(200).json(resultados[0]);
         }
     });
@@ -58,6 +59,8 @@ function lerUm(id, res){
 
 function atualizar(id, aluno, res){
     const sql = "UPDATE alunos SET ? WHERE id = ?";
+    /* Quando usamos mais de uma parametro para a query,
+    eles devem ser colocados em ordem e dentro de uma array */
     conexao.query(sql, [aluno, id], (erro,resultados) => {
         if(erro){
             res.status(400).json(erro.code);
@@ -69,7 +72,8 @@ function atualizar(id, aluno, res){
             //  ...
             // -spread operator
             // -operador de "espalhamento" de objeto
-
+            /* Usamos o spread operator (...) para espalhar os dados do objeto aluno
+             dentro do objeto json junto com id */
             // saida mais detalhada
             res.status(200).json({...aluno, id});
         
@@ -77,4 +81,15 @@ function atualizar(id, aluno, res){
     });
 }
 
-export {ler, inserir, lerUm, atualizar};
+function excluir(id, res){
+    const sql = "DELETE FROM alunos WHERE id = ?";
+    conexao.query(sql, id, (erro, resultados)=>{
+        if(erro){
+            res.status(400).json(erro.code);
+        }else{
+            res.status(200).json({"status": "aluno excluído", id})
+        }
+    })
+}
+
+export {ler, inserir, lerUm, atualizar, excluir};

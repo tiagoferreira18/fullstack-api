@@ -16,8 +16,8 @@ app.use(express.urlencoded({extended:true}));
 
 
 // Rotas
-app.get('https://documenter.getpostman.com/view/19292975/UVeAtoMA', (req, res) => {
-    // res.send(`API de alunos com Node.js, Express e MySQL`);
+app.get('/', (req, res) => {
+    res.send(`API de alunos com Node.js, Express e MySQL`);
 });
 
 //GET: Endpoint (rota) para todos os alunos da API
